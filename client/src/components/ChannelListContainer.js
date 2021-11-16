@@ -35,7 +35,7 @@ const ChannelListContainer = () => {
     <>
       {/* Side bar where log out button and logo is placed */}
       <SideBar />
-        
+
       <div className="channel-list__list__wrapper">
         <CompanyHeader />
         <ChannelSearch />
