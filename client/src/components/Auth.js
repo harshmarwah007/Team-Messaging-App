@@ -1,11 +1,12 @@
 /** @format */
 
 import React, { useState } from "react";
-import { Cookies } from "universal-cookie";
+import Cookies from "universal-cookie";
+import axios from "axios";
 
 const signInImage =
   "https://www.posist.com/wp-content/uploads/2020/12/POSist-Marketplace.png";
-
+const cookies = new Cookies();
 const initialState = {
   fullName: "",
   username: "",
@@ -21,9 +22,29 @@ const Auth = () => {
   const handleChange = (e) => {
     setform({ ...form, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
+    const { fullName, password, emailId, avatarURL, username } = form;
+    const URL = "http://localhost:5000/auth";
+    const {
+      data: { token, userId, hashedPassword },
+    } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
+      username,
+      password,
+      fullName,
+      emailId,
+      avatarURL,
+    });
+    cookies.set("token", token);
+    cookies.set("username", username);
+    cookies.set("fullName", fullName);
+    cookies.set("userId", userId);
+    if (isSignup) {
+      cookies.set("emailId", emailId);
+      cookies.set("avatarURL", avatarURL);
+      cookies.set("hashedPassword", hashedPassword);
+    }
+    window.location.reload();
   };
   const switchMode = () => {
     setisSignup((prevIsSignup) => !prevIsSignup);

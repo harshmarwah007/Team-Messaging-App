@@ -1,8 +1,9 @@
 /** @format */
 
 :root {
-  --primary-color: #005fff;
+  --primary-color: #236faf;
   --primary-color-alpha: #005fff1a;
+  --primarybackgroundcolor: #ebf5f7;
 }
 
 html,
@@ -383,7 +384,7 @@ body {
 .channel-list__sidebar {
   width: 72px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    var(--primary-color);
+    #8caa3b;
   box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.25);
   /* border-top-left-radius: 16px; */
   /* border-bottom-left-radius: 16px; */
