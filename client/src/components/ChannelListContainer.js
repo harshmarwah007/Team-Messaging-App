@@ -1,18 +1,10 @@
 /** @format */
 
 import React, { useState } from "react";
-import {
-  ChannelList,
-  useChatContext,
-  Avatar,
-  useChannelStateContext,
-} from "stream-chat-react";
+import { ChannelList, useChatContext, Avatar } from "stream-chat-react";
 import Cookies from "universal-cookie";
 import { ChannelSearch, TeamChannelList, TeamChannelPreview } from "./";
 import LogoutIcon from "../assets/logout.png";
-
-const logo =
-  "https://gdm-catalog-fmapi-prod.imgix.net/ProductLogo/b215a653-3512-4292-8dc9-546c3eae7c91.png?fit=max&w=104&auto=compress,format";
 
 const cookies = new Cookies();
 const SideBar = ({ logout }) => {
@@ -153,7 +145,7 @@ const ChannelListContainer = ({
       <div
         className="channel-list__container-responsive"
         style={{
-          left: toggleContainer ? "0%" : "-89%",
+          left: toggleContainer ? "0%" : "-87%",
           backgroundColor: "#005fff",
         }}>
         <div
