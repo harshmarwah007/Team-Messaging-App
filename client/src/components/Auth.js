@@ -71,7 +71,7 @@ const Auth = () => {
             )}
 
             <div className="auth__form-container_fields-content_input">
-              <label htmlFor="username">User</label>
+              <label htmlFor="username">Username</label>
               <input
                 name="username"
                 type="text"
