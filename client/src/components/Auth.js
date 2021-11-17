@@ -92,18 +92,7 @@ const Auth = () => {
                 />
               </div>
             )}
-            {/* {isSignup && (
-              <div className="auth__form-container_fields-content_input">
-                <label htmlFor="phoneNumber">Phone Number</label>
-                <input
-                  name="phoneNumber"
-                  type="number"
-                  placeholder="Phone Number"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            )} */}
+            
 
             <div className="auth__form-container_fields-content_input">
               <label htmlFor="password">Password</label>
@@ -115,18 +104,7 @@ const Auth = () => {
                 required
               />
             </div>
-            {/* {isSignup && (
-              <div className="auth__form-container_fields-content_input">
-                <label htmlFor="confirmPassword">Confirm Password</label>
-                <input
-                  name="confirmPassword"
-                  type="password"
-                  placeholder="Password"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            )} */}
+            
             {isSignup && (
               <div className="auth__form-container_fields-content_input">
                 <label htmlFor="avatarURL">Profile Image URL</label>

@@ -400,7 +400,7 @@ body {
       rgba(0, 0, 0, 0) 89.32%
     ),
     #ffffff;
-  border-radius: 9999px;
+  border-radius: 22px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.33);
 }
 
@@ -861,7 +861,6 @@ body {
   box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
   border-top-right-radius: 16px;
   z-index: 1;
- 
 }
 
 .team-channel-header__channel-wrapper {
@@ -1724,7 +1723,7 @@ div.rta__autocomplete.str-chat__emojisearch {
   display: none;
   height: 50px;
   width: 50px;
-  background: #005fff;
+  background: #236faf;
   position: absolute;
   right: -2%;
   top: 50%;
@@ -1835,4 +1834,8 @@ div.rta__autocomplete.str-chat__emojisearch {
   .channel-list__sidebar {
     display: none;
   }
+}
+
+.icon1__inner > .str-chat__avatar--circle {
+  margin-left: 8px;
 }
