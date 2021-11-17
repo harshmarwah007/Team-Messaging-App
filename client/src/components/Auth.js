@@ -25,7 +25,8 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { password, emailId, avatarURL, username } = form;
-    const URL = "http://localhost:5000/auth";
+    // const URL = "http://localhost:5000/auth";
+    const URL = "https://posist-messaging-app.herokuapp.com/auth";
     const {
       data: { token, userId, hashedPassword, fullName },
     } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
@@ -70,7 +71,7 @@ const Auth = () => {
             )}
 
             <div className="auth__form-container_fields-content_input">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">User</label>
               <input
                 name="username"
                 type="text"
@@ -92,7 +93,6 @@ const Auth = () => {
                 />
               </div>
             )}
-            
 
             <div className="auth__form-container_fields-content_input">
               <label htmlFor="password">Password</label>
@@ -104,7 +104,7 @@ const Auth = () => {
                 required
               />
             </div>
-            
+
             {isSignup && (
               <div className="auth__form-container_fields-content_input">
                 <label htmlFor="avatarURL">Profile Image URL</label>
