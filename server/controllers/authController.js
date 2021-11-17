@@ -21,7 +21,7 @@ const login = async (req, res) => {
     if (success) {
       res.status(200).json({
         token,
-        fullName: users[0].fullname,
+        fullName: users[0].fullName,
         username,
         userId: users[0].id,
       });
