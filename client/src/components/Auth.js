@@ -24,14 +24,14 @@ const Auth = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { fullName, password, emailId, avatarURL, username } = form;
+    const { password, emailId, avatarURL, username } = form;
     const URL = "http://localhost:5000/auth";
     const {
-      data: { token, userId, hashedPassword },
+      data: { token, userId, hashedPassword, fullName },
     } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
       username,
       password,
-      fullName,
+      fullName: form.fullName,
       emailId,
       avatarURL,
     });
@@ -115,7 +115,7 @@ const Auth = () => {
                 required
               />
             </div>
-            {isSignup && (
+            {/* {isSignup && (
               <div className="auth__form-container_fields-content_input">
                 <label htmlFor="confirmPassword">Confirm Password</label>
                 <input
@@ -126,7 +126,7 @@ const Auth = () => {
                   required
                 />
               </div>
-            )}
+            )} */}
             {isSignup && (
               <div className="auth__form-container_fields-content_input">
                 <label htmlFor="avatarURL">Profile Image URL</label>
