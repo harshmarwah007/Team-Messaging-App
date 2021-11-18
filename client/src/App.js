@@ -21,6 +21,7 @@ if (authToken) {
       image: cookies.get("avatarURL"),
       hashedPassword: cookies.get("hashedPassword"),
       emailId: cookies.get("emailId"),
+      region: cookies.get("region"),
     },
     authToken
   );
@@ -29,6 +30,7 @@ const App = () => {
   const [createType, setCreateType] = useState("");
   const [isCreating, setIsCreating] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [isDashboard, setIsDashboard] = useState(false);
   if (!authToken) return <Auth />;
   return (
     <div className="app__wrapper">
@@ -38,6 +40,7 @@ const App = () => {
           setIsCreating={setIsCreating}
           setIsEditing={setIsEditing}
           setCreateType={setCreateType}
+          setIsDashboard={setIsDashboard}
         />
         <ChannelContainer
           isCreating={isCreating}
@@ -45,6 +48,8 @@ const App = () => {
           setIsCreating={setIsCreating}
           setIsEditing={setIsEditing}
           createType={createType}
+          setIsDashboard={setIsDashboard}
+          isDashboard={isDashboard}
         />
       </Chat>
     </div>

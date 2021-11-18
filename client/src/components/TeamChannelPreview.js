@@ -6,6 +6,7 @@ const TeamChannelPreview = ({
   setActiveChannel,
   setIsEditing,
   setIsCreating,
+  setIsDashboard,
   setToggleContainer,
   channel,
   type,
@@ -21,7 +22,7 @@ const TeamChannelPreview = ({
       ({ user }) => user.id !== client.userID
     );
 
-    console.log(members[0]);
+    
 
     return (
       <div className="channel-preview__item single">
@@ -44,6 +45,7 @@ const TeamChannelPreview = ({
       onClick={() => {
         setIsCreating(false);
         setIsEditing(false);
+        setIsDashboard(false);
         setActiveChannel(channel);
         if (setToggleContainer) {
           setToggleContainer((prevState) => !prevState);

@@ -10,11 +10,11 @@ const cookies = new Cookies();
 const initialState = {
   fullName: "",
   username: "",
-  //   phoneNumber: "",
   password: "",
   confirmPassword: "",
   avatarURL: "",
   emailId: "",
+  region:""
 };
 const Auth = () => {
   const [form, setform] = useState(initialState);
@@ -24,7 +24,7 @@ const Auth = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { password, emailId, avatarURL, username } = form;
+    const { password, emailId, avatarURL, username ,region} = form;
     // const URL = "http://localhost:5000/auth";
     const URL = "https://posist-messaging-app.herokuapp.com/auth";
     const {
@@ -35,12 +35,15 @@ const Auth = () => {
       fullName: form.fullName,
       emailId,
       avatarURL,
+      region,
     });
     cookies.set("token", token);
     cookies.set("username", username);
     cookies.set("fullName", fullName);
     cookies.set("userId", userId);
-    if (isSignup) {
+    if (isSignup)
+    {
+      cookies.set("region", region);
       cookies.set("emailId", emailId);
       cookies.set("avatarURL", avatarURL);
       cookies.set("hashedPassword", hashedPassword);
@@ -104,7 +107,18 @@ const Auth = () => {
                 required
               />
             </div>
-
+            {isSignup && (
+              <div className="auth__form-container_fields-content_input">
+                <label htmlFor="region">Region</label>
+                <input
+                  name="region"
+                  type="text"
+                  placeholder="Enter Your State"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            )}
             {isSignup && (
               <div className="auth__form-container_fields-content_input">
                 <label htmlFor="avatarURL">Profile Image URL</label>

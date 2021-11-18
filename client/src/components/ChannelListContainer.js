@@ -7,13 +7,15 @@ import { ChannelSearch, TeamChannelList, TeamChannelPreview } from "./";
 import LogoutIcon from "../assets/logout.png";
 
 const cookies = new Cookies();
-const SideBar = ({ logout }) => {
+const SideBar = ({ logout, setIsDashboard }) => {
   const { client } = useChatContext();
   return (
     <div className="channel-list__sidebar">
       <div className="channel-list__sidebar__icon1">
         <div className="icon1__inner">
           <Avatar
+            
+            onClick={() => setIsDashboard(true)}
             image={client.user.image}
             name={client.user.fullName || client.user.id}
             size={44}
@@ -48,6 +50,7 @@ const ChannelListContent = ({
   setIsEditing,
   setCreateType,
   setToggleContainer,
+  setIsDashboard,
 }) => {
   const { client } = useChatContext();
 
@@ -59,6 +62,7 @@ const ChannelListContent = ({
     cookies.remove("avatarURL");
     cookies.remove("hashedPassword");
     cookies.remove("emailId");
+    cookies.remove("region");
     window.location.reload();
   };
 
@@ -67,7 +71,7 @@ const ChannelListContent = ({
   return (
     <>
       {/* Side bar where log out button and logo is placed */}
-      <SideBar logout={logout} />
+      <SideBar logout={logout} setIsDashboard={setIsDashboard} />
 
       <div className="channel-list__list__wrapper">
         <CompanyHeader />
@@ -84,6 +88,7 @@ const ChannelListContent = ({
               setIsEditing={setIsEditing}
               setCreateType={setCreateType}
               setToggleContainer={setToggleContainer}
+              setIsDashboard={setIsDashboard}
             />
           )}
           Preview={(previewProps) => (
@@ -93,6 +98,7 @@ const ChannelListContent = ({
               setToggleContainer={setToggleContainer}
               setIsEditing={setIsEditing}
               setIsCreating={setIsCreating}
+              setIsDashboard={setIsDashboard}
             />
           )}
         />
@@ -108,6 +114,7 @@ const ChannelListContent = ({
               setIsCreating={setIsCreating}
               setCreateType={setCreateType}
               setToggleContainer={setToggleContainer}
+              setIsDashboard={setIsDashboard}
             />
           )}
           Preview={(previewProps) => (
@@ -117,6 +124,7 @@ const ChannelListContent = ({
               setIsCreating={setIsCreating}
               type="messaging"
               setToggleContainer={setToggleContainer}
+              setIsDashboard={setIsDashboard}
             />
           )}
         />
@@ -129,6 +137,7 @@ const ChannelListContainer = ({
   setCreateType,
   setIsCreating,
   setIsEditing,
+  setIsDashboard,
 }) => {
   const [toggleContainer, setToggleContainer] = useState(false);
 
@@ -139,6 +148,7 @@ const ChannelListContainer = ({
           setIsCreating={setIsCreating}
           setCreateType={setCreateType}
           setIsEditing={setIsEditing}
+          setIsDashboard={setIsDashboard}
         />
       </div>
 
@@ -158,6 +168,7 @@ const ChannelListContainer = ({
           setCreateType={setCreateType}
           setIsEditing={setIsEditing}
           setToggleContainer={setToggleContainer}
+          setIsDashboard={setIsDashboard}
         />
       </div>
     </>

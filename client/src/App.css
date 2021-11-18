@@ -1838,4 +1838,8 @@ div.rta__autocomplete.str-chat__emojisearch {
 
 .icon1__inner > .str-chat__avatar--circle {
   margin-left: 8px;
+  cursor: pointer;
+}
+.icon1__inner > .str-chat__avatar--circle:hover {
+  border: 3px solid rgba(255, 255, 255, 0.644);
 }

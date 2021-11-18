@@ -3,7 +3,7 @@
 import React from "react";
 import { Channel, MessageTeam } from "stream-chat-react";
 
-import { ChannelInner, CreateChannel, EditChannel } from "./";
+import { Dashboard, ChannelInner, CreateChannel, EditChannel } from "./";
 
 const ChannelContainer = ({
   isCreating,
@@ -11,6 +11,7 @@ const ChannelContainer = ({
   isEditing,
   setIsEditing,
   createType,
+  isDashboard,
 }) => {
   if (isCreating) {
     return (
@@ -24,6 +25,13 @@ const ChannelContainer = ({
     return (
       <div className="channel__container">
         <EditChannel setIsEditing={setIsEditing} />
+      </div>
+    );
+  }
+  if (isDashboard) {
+    return (
+      <div className="channel__container">
+        <Dashboard />
       </div>
     );
   }

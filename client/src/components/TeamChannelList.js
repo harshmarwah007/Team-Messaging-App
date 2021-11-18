@@ -15,6 +15,7 @@ const TeamChannelList = ({
   setIsCreating,
   setCreateType,
   setIsEditing,
+  setIsDashboard
 }) => {
   if (error) {
     return type === "team" ? (
@@ -49,6 +50,7 @@ const TeamChannelList = ({
           setIsEditing={setIsEditing}
           type={type === "team" ? "team" : "messaging"}
           setToggleContainer={setToggleContainer}
+          setIsDashboard={setIsDashboard}
         />
       </div>
       {children}

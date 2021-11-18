@@ -36,16 +36,22 @@ const login = async (req, res) => {
 
 const signup = async (req, res) => {
   try {
-    const { fullName, username, password, emailId } = req.body;
+    const { fullName, username, password, emailId, region } = req.body;
     const userId = crypto.randomBytes(16).toString("hex");
     const serverClient = connect(api_key, api_secret, api_id);
 
     const hashedPassword = await bcrypt.hash(password, 10); // 10 means level of encryption
 
     const token = serverClient.createUserToken(userId);
-    res
-      .status(200)
-      .json({ token, fullName, username, userId, emailId, hashedPassword });
+    res.status(200).json({
+      token,
+      fullName,
+      username,
+      userId,
+      emailId,
+      hashedPassword,
+      region,
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: error });

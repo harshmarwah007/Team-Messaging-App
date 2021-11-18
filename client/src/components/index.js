@@ -12,3 +12,5 @@ export { default as EditChannel } from "./EditChannel";
 export { default as CreateChannel } from "./CreateChannel";
 export { default as UserList } from "./UserList";
 export { default as ResultsDropdown } from "./ResultsDropdown";
+export { default as Metrics } from "./Metrics";
+export { default as Dashboard } from "./Dashboard";
