@@ -14,7 +14,7 @@ const initialState = {
   confirmPassword: "",
   avatarURL: "",
   emailId: "",
-  region:""
+  region: "",
 };
 const Auth = () => {
   const [form, setform] = useState(initialState);
@@ -24,9 +24,9 @@ const Auth = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { password, emailId, avatarURL, username ,region} = form;
-    // const URL = "http://localhost:5000/auth";
-    const URL = "https://posist-messaging-app.herokuapp.com/auth";
+    const { password, emailId, avatarURL, username, region } = form;
+    const URL = "http://localhost:5000/auth";
+    //const URL = "https://posist-messaging-app.herokuapp.com/auth";
     const {
       data: { token, userId, hashedPassword, fullName },
     } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
@@ -41,8 +41,7 @@ const Auth = () => {
     cookies.set("username", username);
     cookies.set("fullName", fullName);
     cookies.set("userId", userId);
-    if (isSignup)
-    {
+    if (isSignup) {
       cookies.set("region", region);
       cookies.set("emailId", emailId);
       cookies.set("avatarURL", avatarURL);
