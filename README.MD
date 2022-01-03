@@ -22,4 +22,4 @@ STREAM_API_ID =
 create account at getstream.io and then use these above mentioned credentials
 in .env file after creating .env file at client folder.
 
-#give a star and fork this project 
+#give a star and fork this project and follow
